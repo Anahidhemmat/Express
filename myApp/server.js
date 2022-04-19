@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 
 app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
   console.log("here");
   //   res.send("<h1>Hi Baby</h1>");
@@ -10,6 +11,6 @@ app.get("/", (req, res) => {
   //   res.status(500).send("Hi");
   //   res.json({ message: "Eroor" });
   //   res.download("server.js");
-  res.render("index");
+  res.render("index", { text: "Worldd" });
 });
-app.listen(3000);
+app.listen(3005);
