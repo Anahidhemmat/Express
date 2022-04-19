@@ -4,15 +4,28 @@ const router = express.Router();
 router.use(logger);
 
 router.get("/", (req, res) => {
+  console.log(req.query.name);
   res.send("User List");
 });
 
 router.get("/new", (req, res) => {
-  res.send("User New Form");
+  //   res.send("User New Form");
+  res.render("users/new");
 });
 
 router.post("/", (req, res) => {
-  res.send("Create User");
+  //   res.send("Create User");
+  //   console.log(req.body.firstName);
+  //   res.send("Hi");
+
+  const isValid = false;
+  if (isValid) {
+    users.push({ name: req.body.firstName });
+    res.redirect(`/users/${users.length - 1}`);
+  } else {
+    console.log("Error");
+    res.render("users/new", { firstName: req.body.firstName });
+  }
 });
 
 // chaining routers
