@@ -13,4 +13,9 @@ app.get("/", (req, res) => {
   //   res.download("server.js");
   res.render("index", { text: "Worldd" });
 });
+
+const userRouters = require("./routes/users.js");
+
+app.use("/users", userRouters);
+
 app.listen(3005);
