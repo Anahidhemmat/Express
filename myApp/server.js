@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 
 app.set("view engine", "ejs");
+// app.use(logger);
 
 app.get("/", (req, res) => {
   console.log("here");
@@ -17,5 +18,10 @@ app.get("/", (req, res) => {
 const userRouters = require("./routes/users.js");
 
 app.use("/users", userRouters);
+
+// function logger(req, res, next) {
+//   console.log(req.originalUrl);
+//   next();
+// }
 
 app.listen(3005);
